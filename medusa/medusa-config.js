@@ -4,7 +4,7 @@ loadEnv(process.env.NODE_ENV, process.cwd());
 
 module.exports = defineConfig({
   admin: {
-    backendUrl: process.env.BACKEND_URL ?? "https://sofa-society-starter.medusajs.app",
+    backendUrl: process.env.BACKEND_URL ?? "http://localhost:9000",
     storefrontUrl: process.env.STOREFRONT_URL,
   },
   projectConfig: {
