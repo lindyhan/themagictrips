@@ -6,7 +6,7 @@ module.exports = defineConfig({
   admin: {
     disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
     backendUrl: process.env.BACKEND_URL ?? 'https://sofa-society-starter.medusajs.app',
-    path: process.env.MEDUSA_ADMIN_PATH
+    path: process.env.MEDUSA_ADMIN_PATH,
     storefrontUrl: process.env.STOREFRONT_URL,
 },
   projectConfig: {
