@@ -4,10 +4,11 @@ loadEnv(process.env.NODE_ENV, process.cwd());
 
 module.exports = defineConfig({
   admin: {
-    backendUrl:
-      process.env.BACKEND_URL ?? 'https://sofa-society-starter.medusajs.app',
+    disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
+    backendUrl: process.env.BACKEND_URL ?? 'https://sofa-society-starter.medusajs.app',
+    path: process.env.MEDUSA_ADMIN_PATH
     storefrontUrl: process.env.STOREFRONT_URL,
-  },
+},
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     redisUrl: process.env.REDIS_URL,
