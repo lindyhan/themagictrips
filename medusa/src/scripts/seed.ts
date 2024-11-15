@@ -92,7 +92,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
         {
           name: 'Europe',
           currency_code: 'eur',
-          countries,
+          //countries,
           payment_providers: ['pp_stripe_stripe'],
         },
       ],
@@ -120,6 +120,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
     },
   });
 
+  /*
   logger.info('Seeding tax regions...');
   await createTaxRegionsWorkflow(container).run({
     input: countries.map((country_code) => ({
@@ -127,6 +128,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
     })),
   });
   logger.info('Finished seeding tax regions.');
+  */
 
   logger.info('Seeding stock location data...');
   const { result: stockLocationResult } = await createStockLocationsWorkflow(
@@ -157,6 +159,8 @@ export default async function seedDemoData({ container }: ExecArgs) {
   });
 
   logger.info('Seeding fulfillment data...');
+  
+  /*
   const { result: shippingProfileResult } =
     await createShippingProfilesWorkflow(container).run({
       input: {
@@ -168,8 +172,10 @@ export default async function seedDemoData({ container }: ExecArgs) {
         ],
       },
     });
-  const shippingProfile = shippingProfileResult[0];
+  
+    const shippingProfile = shippingProfileResult[0];
 
+  
   const fulfillmentSet = await fulfillmentModuleService.createFulfillmentSets({
     name: 'European Warehouse delivery',
     type: 'shipping',
@@ -213,6 +219,8 @@ export default async function seedDemoData({ container }: ExecArgs) {
       },
     ],
   });
+
+  */
 
   await remoteLink.create({
     [Modules.STOCK_LOCATION]: {
